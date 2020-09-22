@@ -12,4 +12,5 @@ jobs:
         dotnet-version: 3.1.103
     - uses: actions/checkout@v2
     - name: Testing build
-      run: dotnet test --file apis/poi
+      working-directory: ./apis/poi/
+      run: dotnet test
