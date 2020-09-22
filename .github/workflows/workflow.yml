@@ -7,4 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Testing build
+      working-directory: /apis/poi/
       run: dotnet test
