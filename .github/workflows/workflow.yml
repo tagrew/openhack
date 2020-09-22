@@ -1,0 +1,10 @@
+name: poi .net core testing
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Testing build
+      run: dotnet test
