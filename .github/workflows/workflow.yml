@@ -5,14 +5,11 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      DOTNET_VERSION: '3.1.103' 
     steps:
-    - name: Setup .NET Core
+    - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ env.DOTNET_VERSION }} 
+        dotnet-version: 3.1.103
     - uses: actions/checkout@v2
     - name: Testing build
-      working-directory: /apis/poi/
-      run: dotnet test
+      run: dotnet test --file apis/poi
