@@ -2,8 +2,7 @@ name: Trips CICD
 on:
   push:
     branches: [ master ]
-
-      paths:
+    paths:
       - apis/trips/**
       - .github/workflows/goworkflow.yml
 
@@ -11,7 +10,7 @@ on:
 
     branches: [ master ]
 
-      paths:
+    paths:
       - apis/trips/**
       - .github/workflows/goworkflow.yml
 
