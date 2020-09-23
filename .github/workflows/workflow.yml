@@ -3,7 +3,7 @@ name: poi .net core testing
 on:
   push:
     paths:
-    - 'apis/poi/'
+    - ./apis/poi/
 
 jobs:
   build:
