@@ -1,9 +1,6 @@
 name: Node.js CI
 
-on: 
-  push:
-    paths:
-    - './apis/userprofile/**'
+on: [push]
 
 jobs:
   build:
