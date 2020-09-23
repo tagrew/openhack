@@ -98,7 +98,7 @@ public class UserApiControllerTest {
     @Test
     public void testUpdate() throws Exception {
         profile.setRanking(2);
-        profile.setTotalDistance(2500F);
+        profile.setTotalDistance(1);
         when(httpServletRequest.getHeader("Accept")).thenReturn("accept,application/json;charset=UTF-8");
         when(userRepositoryService.update(profile)).thenReturn(profile);
         mockMvc.perform(
