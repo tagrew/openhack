@@ -3,7 +3,8 @@ name: Node.js CI
 on: 
   push:
     paths:
-      '.apis/userprofile/*/*.js'
+    - 'apis/userprofile/*/*.js'
+    - '.github/workflows/*'
 
 jobs:
   build:
