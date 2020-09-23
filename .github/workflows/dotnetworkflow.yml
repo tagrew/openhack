@@ -17,3 +17,13 @@ jobs:
     - name: Running dotnet tests
       working-directory: ./apis/poi/
       run: dotnet test
+    - name: Create issue from failure of test
+      if: ${{ failure() }}
+      uses: peter-evans/create-issue-from-file@v2
+      with: 
+        title: test issue
+        content-filepath: ./apis/poi/issuecontent.md
+
+
+       
+      
