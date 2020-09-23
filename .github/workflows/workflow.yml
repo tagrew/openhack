@@ -1,6 +1,8 @@
 name: poi .net core testing
 
 on: push
+      paths:
+      - './apis/poi/'
 
 jobs:
   build:
@@ -10,7 +12,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.103
-    - uses: actions/download-artifact@v2
-    - name: Running Tests
+    - uses: actions/checkout@v2
+    - name: Running dotnet tests
       working-directory: ./apis/poi/
       run: dotnet test
