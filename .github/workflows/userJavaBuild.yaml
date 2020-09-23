@@ -38,13 +38,14 @@ jobs:
       - name: Run unit tests
         run: mvn test --file apis/user-java/pom.xml
       - name: Create issue from failure of test
-        if: ${​​{​​ failure() }​​}​​
-        uses: peter-evans/create-issue-from-file@v2
-        with: 
-          title: Test failed
-          content-filepath: ./apis/user-java/issuecontent.md
-          labels: sre, cloud
-          assignees: shwsrini, toddwhitehead
+      if: ${{ failure() }}
+      uses: peter-evans/create-issue-from-file@v2
+      with: 
+        title: test failed
+        content-filepath: ./apis/user-java/issuecontent.md
+        labels: sre, cloud
+        assignees: shwsrini, toddwhitehead
+
 
   build:
     runs-on: ubuntu-latest
@@ -57,10 +58,10 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file apis/user-java/pom.xml
       - name: Create issue from failure of test
-      if: ${​​{​​ failure() }​​}​​
-        uses: peter-evans/create-issue-from-file@v2
-        with:
-          title: Build failed
-          content-filepath: ./apis/user-java/issuecontent.md
-          labels: sre, cloud
-          assignees: shwsrini, toddwhitehead
+      if: ${{ failure() }}
+      uses: peter-evans/create-issue-from-file@v2
+      with: 
+        title: Build failed
+        content-filepath: ./apis/user-java/issuecontent.md
+        labels: sre, cloud
+        assignees: shwsrini, toddwhitehead
