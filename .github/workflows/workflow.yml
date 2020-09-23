@@ -1,7 +1,9 @@
 name: poi .net core testing
 
-on: push
-
+on:
+  push:
+    paths:
+    - 'apis/poi/**'
 jobs:
   build:
     runs-on: ubuntu-latest
