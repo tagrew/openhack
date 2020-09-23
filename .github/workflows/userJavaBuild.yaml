@@ -18,12 +18,12 @@ jobs:
       run: mvn compile --file apis/user-java/pom.xml
     - name: Create issue from failure of test
       if: ${​​{​​ failure() }​​}​​
-        uses: peter-evans/create-issue-from-file@v2
-        with:
-          title: compile failed
-          content-filepath: ./apis/user-java/issuecontent.md
-          labels: sre, cloud
-          assignees: shwsrini, toddwhitehead  
+      uses: peter-evans/create-issue-from-file@v2
+      with:
+        title: compile failed
+        content-filepath: ./apis/user-java/issuecontent.md
+        labels: sre, cloud
+        assignees: shwsrini, toddwhitehead  
 
   test:
     runs-on: ubuntu-latest
