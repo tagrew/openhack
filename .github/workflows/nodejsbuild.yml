@@ -4,7 +4,7 @@ on:
   push:
     paths:
     - 'apis/userprofile/**'
-    - '.github/workflows/**'
+    - '.github/workflows/nodejsbuild.yml'
 
 jobs:
   build:
