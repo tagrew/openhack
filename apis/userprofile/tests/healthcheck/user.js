@@ -66,7 +66,8 @@ Test('/healthcheck/user', function (t) {
                     var validate = Validator(api.paths['/healthcheck/user']['get']['responses']['200']['schema']);
                     var response = res.body;
                     if (Object.keys(response).length <= 0) {
-                        response = res.text;
+                       // response = res.text;
+                       respone = 0;
                     }
                     t.ok(validate(response), 'Valid response');
                     t.error(validate.errors, 'No validation errors');
