@@ -1,0 +1,35 @@
+name: Trips CICD
+
+on:
+  push:
+    branches: [ master ]
+    paths: 
+      - apis/trips/**  
+      - .github/workflows/goworkflow.yml
+  pull_request:
+    branches: [ master ]
+    paths: 
+      - apis/trips/**
+      - .github/workflows/goworkflow.yml
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: apis/trips    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Go environment
+      uses: actions/setup-go@v2.0.3
+      with:
+        go-version: 1.12
+
+    - name: Install dependencies
+      run: go get
+
+    - name: Run Unit Tests
+      run: go test ./tests
+

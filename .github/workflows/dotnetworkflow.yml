@@ -1,0 +1,29 @@
+name: poi .net core testing
+
+on:
+  push:
+    paths:
+    - 'apis/poi/**'
+    - '.github/workflows/dotnetworkflow.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup .NET Core SDK 2
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.103
+    - uses: actions/checkout@v2
+    - name: Running dotnet tests
+      working-directory: ./apis/poi/
+      run: dotnet test
+    - name: Create issue from failure of test
+      if: ${{ failure() }}
+      uses: peter-evans/create-issue-from-file@v2
+      with: 
+        title: Build failed
+        content-filepath: ./apis/poi/issuecontent.md
+        labels: sre, cloud
+        assignees: shwsrini, toddwhitehead
+
+      
