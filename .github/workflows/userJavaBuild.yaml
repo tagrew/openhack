@@ -17,9 +17,9 @@ jobs:
     - name: Compile code
       run: mvn compile --file apis/user-java/pom.xml
     - name: Create issue from failure of test
-        if: ${​​{​​ failure() }​​}​​
+      if: ${​​{​​ failure() }​​}​​
         uses: peter-evans/create-issue-from-file@v2
-        with: 
+        with:
           title: compile failed
           content-filepath: ./apis/user-java/issuecontent.md
           labels: sre, cloud
@@ -57,9 +57,9 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file apis/user-java/pom.xml
       - name: Create issue from failure of test
-        if: ${​​{​​ failure() }​​}​​
+      if: ${​​{​​ failure() }​​}​​
         uses: peter-evans/create-issue-from-file@v2
-        with: 
+        with:
           title: Build failed
           content-filepath: ./apis/user-java/issuecontent.md
           labels: sre, cloud
