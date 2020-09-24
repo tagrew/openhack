@@ -46,3 +46,12 @@ jobs:
     - run: |
         docker build ./apis/poi/web -t openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }} 
         docker push openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }} 
+        
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'openhackjy29oiq3poi'
+        images: 'openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}'
+    
+    - name: Azure logout
+      run: |
+        az logout
