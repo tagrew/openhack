@@ -53,6 +53,11 @@ jobs:
         images: 'openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}'
         slot-name: 'staging'
     
+    - name: Sleeper for 60 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '60s'
+    
     - name: Azure logout
       run: |
         az logout
