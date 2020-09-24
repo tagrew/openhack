@@ -58,6 +58,10 @@ jobs:
       with:
         time: '60s'
     
+    - name: Swap slots between staging and production
+      run: | 
+       az webapp deployment slot swap  -g openhackjy29oiq3rg -n openhackjy29oiq3poi --slot staging --target-slot production
+       
     - name: Azure logout
       run: |
         az logout
