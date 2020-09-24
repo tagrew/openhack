@@ -25,5 +25,24 @@ jobs:
         content-filepath: ./apis/poi/issuecontent.md
         labels: sre, cloud
         assignees: shwsrini, toddwhitehead
-
-      
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@master
+    
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.SERVICE_PRINCE }}
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: openhackjy29oiq3acr.azurecr.io
+        username: ${{ secrets.USER_NAME }}
+        password: ${{ secrets.PASSWORD }}
+    
+    - run: |
+        docker build . -t openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}
+        docker push openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}
