@@ -41,7 +41,7 @@ jobs:
       with:
         login-server: openhackjy29oiq3acr.azurecr.io
         username: ${{ secrets.USER_NAME }}
-        password: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.PASSWORD_1 }}
     
     - run: |
         docker build . -t openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}
