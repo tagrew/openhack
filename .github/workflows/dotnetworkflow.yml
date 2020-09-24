@@ -44,5 +44,5 @@ jobs:
         password: ${{ secrets.PASSWORD_1 }}
     
     - run: |
-        docker build . -t openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}
-        docker push openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}
+        docker build . -t openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }} ./apis/poi/web
+        docker push openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }} 
