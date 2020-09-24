@@ -51,6 +51,7 @@ jobs:
       with:
         app-name: 'openhackjy29oiq3poi'
         images: 'openhackjy29oiq3acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }}'
+        slot-name: 'openhackjy29oiq3poi-staging'
     
     - name: Azure logout
       run: |
